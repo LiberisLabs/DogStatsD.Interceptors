@@ -5,7 +5,7 @@ using Castle.DynamicProxy;
 
 namespace LiberisLabs.DogStatsD.Interceptors
 {
-    public class DogStatdInterceptor : IInterceptor
+    public class DogStatdInterceptor : Castle.DynamicProxy.IInterceptor
     {
         private readonly MonitorInterceptorFactory _factory;
 

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Reflection;
 using Castle.Core.Internal;
+using LiberisLabs.DogStatsD.Interceptors.Monitors;
 
 namespace LiberisLabs.DogStatsD.Interceptors
 {
@@ -13,17 +14,23 @@ namespace LiberisLabs.DogStatsD.Interceptors
             _dogStatsd = new DogStatsdWrapper();
         }
 
-        public ICollection<IMonitor> CreateMonitorInterceptors(MethodInfo method, MethodInfo methodInvocationTarget)
+        public ICollection<IInterceptor> CreateMonitorInterceptors(MethodInfo method, MethodInfo methodInvocationTarget)
         {
-            var monitorInterceptor = new List<IMonitor>();
+            var monitorInterceptor = new List<IInterceptor>();
 
             if (method.HasAttribute<InstrumentAttribute>() || methodInvocationTarget.HasAttribute<InstrumentAttribute>())
             {
-                monitorInterceptor.Add(new DataDogInstrumentMonitor(methodInvocationTarget, _dogStatsd));
+                monitorInterceptor.Add(CreateInstrumentInterceptor(methodInvocationTarget));
             }
 
             return monitorInterceptor;
         }
 
+        private IInterceptor CreateInstrumentInterceptor(MethodInfo methodInvocationTarget)
+        {
+            var monitor = new InstrumentMonitor(methodInvocationTarget, _dogStatsd);
+
+            return new MonitorInterceptorAdapter(monitor, methodInvocationTarget);
+        }
     }
 }

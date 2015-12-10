@@ -5,12 +5,12 @@ namespace LiberisLabs.DogStatsD.Interceptors
 {
     public interface IMonitor
     {
-        void OnEntry();
+        void Attempt();
 
-        void OnExit();
+        void Success();
 
-        void OnException(Exception exception);
+        void Error();
 
-        void OnTaskContinuation(Task task);
+        void Canceled();
     }
 }
