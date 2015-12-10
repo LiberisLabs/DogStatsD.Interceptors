@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Reflection;
-using System.Runtime.InteropServices;
 using LiberisLabs.DogStatsD.Interceptors.Monitors;
 using Moq;
 using NUnit.Framework;

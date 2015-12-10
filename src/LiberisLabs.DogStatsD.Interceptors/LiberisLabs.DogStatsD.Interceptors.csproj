@@ -55,7 +55,7 @@
     <Compile Include="DogStatsdWrapper.cs" />
     <Compile Include="IInterceptor.cs" />
     <Compile Include="IDogStatsd.cs" />
-    <Compile Include="IMonitor.cs" />
+    <Compile Include="Monitors\IMonitor.cs" />
     <Compile Include="InstrumentAttribute.cs" />
     <Compile Include="MonitorInterceptorFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

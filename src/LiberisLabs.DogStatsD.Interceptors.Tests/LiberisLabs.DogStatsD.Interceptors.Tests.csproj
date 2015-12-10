@@ -48,6 +48,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MonitorInterceptorAdapterTests\MonitorInterceptorAdapterTestsForTaskReturnType.cs" />
+    <Compile Include="MonitorInterceptorAdapterTests\MonitorInterceptorAdapterTests.cs" />
     <Compile Include="Monitors\InstrumentMonitorTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

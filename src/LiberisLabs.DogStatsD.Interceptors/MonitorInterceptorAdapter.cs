@@ -1,6 +1,7 @@
 using System;
 using System.Reflection;
 using System.Threading.Tasks;
+using LiberisLabs.DogStatsD.Interceptors.Monitors;
 
 namespace LiberisLabs.DogStatsD.Interceptors
 {
@@ -9,10 +10,10 @@ namespace LiberisLabs.DogStatsD.Interceptors
         private readonly IMonitor _monitor;
         private readonly bool _isTask;
 
-        public MonitorInterceptorAdapter(IMonitor monitor, MethodInfo method)
+        public MonitorInterceptorAdapter(IMonitor monitor, bool isTaskReturnType)
         {
             _monitor = monitor;
-            _isTask = typeof(Task).IsAssignableFrom(method.ReturnType);
+            _isTask = isTaskReturnType;
         }
 
         public void OnEntry()

@@ -1,7 +1,4 @@
-using System;
-using System.Threading.Tasks;
-
-namespace LiberisLabs.DogStatsD.Interceptors
+namespace LiberisLabs.DogStatsD.Interceptors.Monitors
 {
     public interface IMonitor
     {
