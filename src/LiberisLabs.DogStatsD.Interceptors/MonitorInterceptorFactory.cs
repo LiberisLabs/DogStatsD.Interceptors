@@ -6,7 +6,7 @@ using LiberisLabs.DogStatsD.Interceptors.Monitors;
 
 namespace LiberisLabs.DogStatsD.Interceptors
 {
-    public class MonitorInterceptorFactory
+    public class MonitorInterceptorFactory : IMonitorInterceptorFactory
     {
         private readonly IDogStatsd _dogStatsd;
 

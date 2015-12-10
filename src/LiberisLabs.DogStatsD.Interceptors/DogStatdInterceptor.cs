@@ -7,11 +7,16 @@ namespace LiberisLabs.DogStatsD.Interceptors
 {
     public class DogStatdInterceptor : Castle.DynamicProxy.IInterceptor
     {
-        private readonly MonitorInterceptorFactory _factory;
+        private readonly IMonitorInterceptorFactory _factory;
+
+        public DogStatdInterceptor(IMonitorInterceptorFactory factory)
+        {
+            _factory = factory;
+        }
 
         public DogStatdInterceptor()
+            : this(new MonitorInterceptorFactory())
         {
-            _factory = new MonitorInterceptorFactory();
         }
 
         public void Intercept(IInvocation invocation)

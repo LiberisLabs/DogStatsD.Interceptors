@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IMonitorInterceptorFactory.cs" />
     <Compile Include="MonitorInterceptorAdapter.cs" />
     <Compile Include="Monitors\InstrumentMonitor.cs" />
     <Compile Include="DogStatdInterceptor.cs" />
