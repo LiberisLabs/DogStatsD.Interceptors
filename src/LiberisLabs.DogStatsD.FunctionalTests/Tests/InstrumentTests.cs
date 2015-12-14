@@ -17,7 +17,7 @@ namespace LiberisLabs.DogStatsD.FunctionalTests.Tests
             var service = new TestServiceFactory().Create();
             service.Method();
             
-            Assert.That(() => instrumentationApi.HandledPattern(@"^LiberisLabs\.DogStatsD\.FunctionalTests\.TestService\.Method\.Attempt:1|c:\\d+$"), Is.True.After(40000, 100));
+            Assert.That(() => instrumentationApi.HandledPattern(@"^liberislabs\.dogstatsd\.functionaltests\.testservice\.method\.attempt:1|c:\\d+$"), Is.True.After(40000, 100));
 
             instrumentationApi.Dispose();
         }

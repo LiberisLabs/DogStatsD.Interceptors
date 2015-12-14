@@ -40,7 +40,7 @@ namespace LiberisLabs.DogStatsD.Interceptors.Tests.Monitors
         {
             _monitor.Attempt();
 
-            _dogStatsd.Verify(x => x.Increment("Namespace.ClassName.MethodName.Attempt", 1, 1D, null), Times.Once);
+            _dogStatsd.Verify(x => x.Increment("namespace.classname.methodname.attempt", 1, 1D, null), Times.Once);
         }
 
         [Test]
@@ -48,7 +48,7 @@ namespace LiberisLabs.DogStatsD.Interceptors.Tests.Monitors
         {
             _monitor.Canceled();
 
-            _dogStatsd.Verify(x => x.Increment("Namespace.ClassName.MethodName.Canceled", 1, 1D, null), Times.Once);
+            _dogStatsd.Verify(x => x.Increment("namespace.classname.methodname.canceled", 1, 1D, null), Times.Once);
         }
 
         [Test]
@@ -56,7 +56,7 @@ namespace LiberisLabs.DogStatsD.Interceptors.Tests.Monitors
         {
             _monitor.Error();
 
-            _dogStatsd.Verify(x => x.Increment("Namespace.ClassName.MethodName.Error", 1, 1D, null), Times.Once);
+            _dogStatsd.Verify(x => x.Increment("namespace.classname.methodname.error", 1, 1D, null), Times.Once);
         }
 
         [Test]
@@ -64,7 +64,7 @@ namespace LiberisLabs.DogStatsD.Interceptors.Tests.Monitors
         {
             _monitor.Success();
 
-            _dogStatsd.Verify(x => x.Increment("Namespace.ClassName.MethodName.Success", 1, 1D, null), Times.Once);
+            _dogStatsd.Verify(x => x.Increment("namespace.classname.methodname.success", 1, 1D, null), Times.Once);
         }
     }
 }

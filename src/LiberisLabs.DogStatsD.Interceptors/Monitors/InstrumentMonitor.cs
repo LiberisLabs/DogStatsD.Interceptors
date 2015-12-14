@@ -10,28 +10,28 @@ namespace LiberisLabs.DogStatsD.Interceptors.Monitors
         public InstrumentMonitor(MethodInfo method, IDogStatsd dogStatsd)
         {
             _dogStatsd = dogStatsd;
-            _statName = $"{method.ReflectedType.FullName}.{method.Name}";
+            _statName = $"{method.ReflectedType.FullName}.{method.Name}".ToLowerInvariant();
         }
 
 
         public void Attempt()
         {
-            _dogStatsd.Increment($"{_statName}.Attempt");
+            _dogStatsd.Increment($"{_statName}.attempt");
         }
 
         public void Success()
         {
-            _dogStatsd.Increment($"{_statName}.Success");
+            _dogStatsd.Increment($"{_statName}.success");
         }
 
         public void Error()
         {
-            _dogStatsd.Increment($"{_statName}.Error");
+            _dogStatsd.Increment($"{_statName}.error");
         }
 
         public void Canceled()
         {
-            _dogStatsd.Increment($"{_statName}.Canceled");
+            _dogStatsd.Increment($"{_statName}.canceled");
         }
     }
 }
