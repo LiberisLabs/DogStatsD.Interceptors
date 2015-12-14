@@ -55,8 +55,12 @@
     <Compile Include="DogStatdInterceptorTests\DogStatdInterceptorTests.cs" />
     <Compile Include="DogStatdInterceptorTests\DogStatdInterceptorTestsForException.cs" />
     <Compile Include="DogStatdInterceptorTests\DogStatdInterceptorTestsForMethodsReturningTasks.cs" />
-    <Compile Include="MonitorInterceptorAdapterTests\MonitorInterceptorAdapterTestsForTaskReturnType.cs" />
-    <Compile Include="MonitorInterceptorAdapterTests\MonitorInterceptorAdapterTests.cs" />
+    <Compile Include="Helpers\TypeBuilder.cs" />
+    <Compile Include="Interceptors\MonitorInterceptorAdapterTests\MonitorInterceptorAdapterTestsForTaskReturnType.cs" />
+    <Compile Include="Interceptors\MonitorInterceptorAdapterTests\MonitorInterceptorAdapterTests.cs" />
+    <Compile Include="Interceptors\TimerInterceptorTests\TimerInterceptorTestsOnException.cs" />
+    <Compile Include="Interceptors\TimerInterceptorTests\TimerInterceptorTestsOnEntry.cs" />
+    <Compile Include="Interceptors\TimerInterceptorTests\TimerInterceptorTestsOnExit.cs" />
     <Compile Include="Monitors\InstrumentMonitorTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

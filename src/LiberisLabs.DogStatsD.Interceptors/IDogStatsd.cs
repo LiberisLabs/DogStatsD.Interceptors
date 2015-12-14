@@ -2,7 +2,7 @@ using System;
 
 namespace LiberisLabs.DogStatsD.Interceptors
 {
-    public interface IDogStatsd
+    public interface IDogStatsD
     {
         void Counter<T>(string statName, T value, double sampleRate = 1, string[] tags = null);
         void Decrement(string statName, int value = 1, double sampleRate = 1, params string[] tags);

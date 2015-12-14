@@ -4,12 +4,16 @@ namespace LiberisLabs.DogStatsD.FunctionalTests
 {
     public interface ITestService
     {
-        void Method();
+        void InstrumentMethod();
 
-        void Exception();
+        void InstrumentException();
 
-        Task TaskMethod();
+        Task InstrumentTaskMethod();
 
-        Task TaskException();
+        Task InstrumentTaskException();
+
+        void TimeMethod();
+
+        void TimeException();
     }
 }

@@ -3,7 +3,7 @@ using StatsdClient;
 
 namespace LiberisLabs.DogStatsD.Interceptors
 {
-    public class DogStatsdWrapper : IDogStatsd
+    public class DogStatsDWrapper : IDogStatsD
     {
         public void Counter<T>(string statName, T value, double sampleRate = 1, string[] tags = null)
         {

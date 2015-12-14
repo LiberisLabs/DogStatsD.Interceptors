@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Castle.DynamicProxy;
 using Moq;
 using NUnit.Framework;
+using IInterceptor = LiberisLabs.DogStatsD.Interceptors.Interceptors.IInterceptor;
 
 namespace LiberisLabs.DogStatsD.Interceptors.Tests.DogStatdInterceptorTests
 {

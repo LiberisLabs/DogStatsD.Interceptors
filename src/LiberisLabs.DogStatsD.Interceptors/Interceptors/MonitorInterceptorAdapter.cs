@@ -1,9 +1,8 @@
 using System;
-using System.Reflection;
 using System.Threading.Tasks;
 using LiberisLabs.DogStatsD.Interceptors.Monitors;
 
-namespace LiberisLabs.DogStatsD.Interceptors
+namespace LiberisLabs.DogStatsD.Interceptors.Interceptors
 {
     public class MonitorInterceptorAdapter : IInterceptor
     {

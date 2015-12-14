@@ -67,6 +67,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestService.cs" />
     <Compile Include="Tests\InstrumentTests.cs" />
+    <Compile Include="Tests\TimeTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LiberisLabs.DogStatsD.Interceptors.Annotations\LiberisLabs.DogStatsD.Interceptors.Annotations.csproj">

@@ -4,34 +4,34 @@ namespace LiberisLabs.DogStatsD.Interceptors.Monitors
 {
     public class InstrumentMonitor : IMonitor
     {
-        private readonly IDogStatsd _dogStatsd;
+        private readonly IDogStatsD _dogStatsD;
         private readonly string _statName;
 
-        public InstrumentMonitor(MethodInfo method, IDogStatsd dogStatsd)
+        public InstrumentMonitor(MethodInfo method, IDogStatsD dogStatsD)
         {
-            _dogStatsd = dogStatsd;
-            _statName = $"{method.ReflectedType.FullName}.{method.Name}".ToLowerInvariant();
+            _dogStatsD = dogStatsD;
+            _statName = $"{method.ReflectedType.FullName}.{method.Name}".ToLowerInvariant();    
         }
 
 
         public void Attempt()
         {
-            _dogStatsd.Increment($"{_statName}.attempt");
+            _dogStatsD.Increment($"{_statName}.attempt");
         }
 
         public void Success()
         {
-            _dogStatsd.Increment($"{_statName}.success");
+            _dogStatsD.Increment($"{_statName}.success");
         }
 
         public void Error()
         {
-            _dogStatsd.Increment($"{_statName}.error");
+            _dogStatsD.Increment($"{_statName}.error");
         }
 
         public void Canceled()
         {
-            _dogStatsd.Increment($"{_statName}.canceled");
+            _dogStatsD.Increment($"{_statName}.canceled");
         }
     }
 }

@@ -50,11 +50,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IMonitorInterceptorFactory.cs" />
-    <Compile Include="MonitorInterceptorAdapter.cs" />
+    <Compile Include="Interceptors\MonitorInterceptorAdapter.cs" />
+    <Compile Include="Interceptors\TimerInterceptor.cs" />
     <Compile Include="Monitors\InstrumentMonitor.cs" />
     <Compile Include="DogStatdInterceptor.cs" />
     <Compile Include="DogStatsdWrapper.cs" />
-    <Compile Include="IInterceptor.cs" />
+    <Compile Include="Interceptors\IInterceptor.cs" />
     <Compile Include="IDogStatsd.cs" />
     <Compile Include="Monitors\IMonitor.cs" />
     <Compile Include="MonitorInterceptorFactory.cs" />

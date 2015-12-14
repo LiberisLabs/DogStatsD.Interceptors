@@ -8,29 +8,42 @@ namespace LiberisLabs.DogStatsD.FunctionalTests
     public class TestService : ITestService
     {
         [Instrument]
-        public void Method()
+        public void InstrumentMethod()
         {
-            Console.WriteLine("Method1");
         }
 
         [Instrument]
-        public void Exception()
+        public void InstrumentException()
         {
             throw new Exception("oops!");
         }
 
         [Instrument]
-        public async Task TaskMethod()
+        public async Task InstrumentTaskMethod()
         {
             await Task.FromResult(0).ConfigureAwait(false);
         }
 
         [Instrument]
-        public async Task TaskException()
+        public async Task InstrumentTaskException()
         {
             await Task.Delay(1).ConfigureAwait(false);
 
             throw new Exception("oops!");
         }
+
+        [Time]
+        public void TimeMethod()
+        {
+            
+        }
+
+        [Time]
+        public void TimeException()
+        {
+            throw new Exception("oops!");
+        }
+
+
     }
 }

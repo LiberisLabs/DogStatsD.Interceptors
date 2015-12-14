@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
+using LiberisLabs.DogStatsD.Interceptors.Interceptors;
 using LiberisLabs.DogStatsD.Interceptors.Monitors;
 using Moq;
 using NUnit.Framework;
 
-namespace LiberisLabs.DogStatsD.Interceptors.Tests.MonitorInterceptorAdapterTests
+namespace LiberisLabs.DogStatsD.Interceptors.Tests.Interceptors.MonitorInterceptorAdapterTests
 {
     [TestFixture]
     public class MonitorInterceptorAdapterTestsForTaskReturnType

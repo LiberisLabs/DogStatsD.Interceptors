@@ -1,6 +1,5 @@
-﻿using System;
-using System.Reflection;
-using LiberisLabs.DogStatsD.Interceptors.Monitors;
+﻿using LiberisLabs.DogStatsD.Interceptors.Monitors;
+using LiberisLabs.DogStatsD.Interceptors.Tests.Helpers;
 using Moq;
 using NUnit.Framework;
 
@@ -10,29 +9,20 @@ namespace LiberisLabs.DogStatsD.Interceptors.Tests.Monitors
     public class InstrumentMonitorTests
     {
         private InstrumentMonitor _monitor;
-        private Mock<IDogStatsd> _dogStatsd;
-        private string _fullName;
-        private string _methodName;
+        private Mock<IDogStatsD> _dogStatsd;
 
         [SetUp]
         public void GivenInstrumentMonitor()
         {
+            var methodInfo =
+                new MethodInfoBuilder().WithNamespace("Namespace")
+                    .WithClassName("ClassName")
+                    .WithMethodName("MethodName")
+                    .Create();
 
-            var type = new Mock<Type>();
-            _fullName = "Namespace.ClassName";
-            type.Setup(x => x.FullName)
-                .Returns(_fullName);
+            _dogStatsd = new Mock<IDogStatsD>();
 
-            var methodInfo = new Mock<MethodInfo>();
-            _methodName = "MethodName";
-            methodInfo.Setup(x => x.Name)
-                .Returns(_methodName);
-            methodInfo.Setup(x => x.ReflectedType)
-                .Returns(type.Object);
-
-            _dogStatsd = new Mock<IDogStatsd>();
-
-            _monitor = new InstrumentMonitor(methodInfo.Object, _dogStatsd.Object);
+            _monitor = new InstrumentMonitor(methodInfo, _dogStatsd.Object);
         }
 
         [Test]
