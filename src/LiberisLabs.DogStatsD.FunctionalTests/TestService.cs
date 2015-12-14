@@ -1,6 +1,7 @@
 using System;
 using System.Threading.Tasks;
 using LiberisLabs.DogStatsD.Interceptors;
+using LiberisLabs.DogStatsD.Interceptors.Annotations;
 
 namespace LiberisLabs.DogStatsD.FunctionalTests
 {

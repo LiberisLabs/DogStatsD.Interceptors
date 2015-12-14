@@ -69,6 +69,10 @@
     <Compile Include="Tests\InstrumentTests.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\LiberisLabs.DogStatsD.Interceptors.Annotations\LiberisLabs.DogStatsD.Interceptors.Annotations.csproj">
+      <Project>{DCA5E56F-DF0A-4E63-8A31-5103766B2EC3}</Project>
+      <Name>LiberisLabs.DogStatsD.Interceptors.Annotations</Name>
+    </ProjectReference>
     <ProjectReference Include="..\LiberisLabs.DogStatsD.Interceptors\LiberisLabs.DogStatsD.Interceptors.csproj">
       <Project>{197B6FB4-0BB8-4193-B8FD-0A5350B3307F}</Project>
       <Name>LiberisLabs.DogStatsD.Interceptors</Name>
