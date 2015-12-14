@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Reflection;
 using System.Threading.Tasks;
 using Castle.Core.Internal;
@@ -28,18 +29,38 @@ namespace LiberisLabs.DogStatsD.Interceptors
 
             if (method.HasAttribute<TimeAttribute>() || methodInvocationTarget.HasAttribute<TimeAttribute>())
             {
-                var timerInterceptor = new TimerInterceptor(methodInvocationTarget, _dogStatsD);
+                var timerInterceptor = CreateTimerInterceptor(methodInvocationTarget);
+
                 monitorInterceptor.Add(timerInterceptor);
             }
 
             return monitorInterceptor;
         }
 
+        private IInterceptor CreateTimerInterceptor(MethodInfo methodInvocationTarget)
+        {
+            IInterceptor timerInterceptor;
+            if (IsTaskReturnType(methodInvocationTarget.ReturnType))
+            {
+                timerInterceptor = new TaskTimerInterceptor(methodInvocationTarget, _dogStatsD);
+            }
+            else
+            {
+                timerInterceptor = new TimerInterceptor(methodInvocationTarget, _dogStatsD);
+            }
+            return timerInterceptor;
+        }
+
         private IInterceptor CreateInstrumentInterceptor(MethodInfo methodInvocationTarget)
         {
             var monitor = new InstrumentMonitor(methodInvocationTarget, _dogStatsD);
 
-            return new MonitorInterceptorAdapter(monitor, typeof(Task).IsAssignableFrom(methodInvocationTarget.ReturnType));
+            return new MonitorInterceptorAdapter(monitor, IsTaskReturnType(methodInvocationTarget.ReturnType));
+        }
+
+        private static bool IsTaskReturnType(Type returnType)
+        {
+            return typeof(Task).IsAssignableFrom(returnType);
         }
     }
 }

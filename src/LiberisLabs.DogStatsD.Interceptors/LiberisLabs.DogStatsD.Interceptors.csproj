@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="IMonitorInterceptorFactory.cs" />
     <Compile Include="Interceptors\MonitorInterceptorAdapter.cs" />
+    <Compile Include="Interceptors\TaskTimerInterceptor.cs" />
     <Compile Include="Interceptors\TimerInterceptor.cs" />
     <Compile Include="Monitors\InstrumentMonitor.cs" />
     <Compile Include="DogStatdInterceptor.cs" />

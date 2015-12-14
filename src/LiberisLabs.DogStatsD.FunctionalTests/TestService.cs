@@ -44,6 +44,18 @@ namespace LiberisLabs.DogStatsD.FunctionalTests
             throw new Exception("oops!");
         }
 
+        [Time]
+        public Task TimeTaskMethod()
+        {
+            return Task.FromResult(0);
+        }
 
+        [Time]
+        public async Task TimeTaskException()
+        {
+            await Task.Delay(1).ConfigureAwait(false);
+
+            throw new Exception("oops!");
+        }
     }
 }

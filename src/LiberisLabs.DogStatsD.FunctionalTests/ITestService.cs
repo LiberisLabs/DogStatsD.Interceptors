@@ -15,5 +15,9 @@ namespace LiberisLabs.DogStatsD.FunctionalTests
         void TimeMethod();
 
         void TimeException();
+
+        Task TimeTaskMethod();
+
+        Task TimeTaskException();
     }
 }

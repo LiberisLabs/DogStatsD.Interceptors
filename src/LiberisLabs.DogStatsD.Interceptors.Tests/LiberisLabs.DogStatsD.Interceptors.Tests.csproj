@@ -58,6 +58,8 @@
     <Compile Include="Helpers\TypeBuilder.cs" />
     <Compile Include="Interceptors\MonitorInterceptorAdapterTests\MonitorInterceptorAdapterTestsForTaskReturnType.cs" />
     <Compile Include="Interceptors\MonitorInterceptorAdapterTests\MonitorInterceptorAdapterTests.cs" />
+    <Compile Include="Interceptors\TaskTimerInterceptorTests\TaskTimerInterceptorTestsOnEntry.cs" />
+    <Compile Include="Interceptors\TaskTimerInterceptorTests\TimerInterceptorTestsOnExit.cs" />
     <Compile Include="Interceptors\TimerInterceptorTests\TimerInterceptorTestsOnException.cs" />
     <Compile Include="Interceptors\TimerInterceptorTests\TimerInterceptorTestsOnEntry.cs" />
     <Compile Include="Interceptors\TimerInterceptorTests\TimerInterceptorTestsOnExit.cs" />
