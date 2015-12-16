@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IInterceptorFactory.cs" />
+    <Compile Include="StatNameCreator.cs" />
     <Compile Include="TaskInterceptors\TaskMonitorInterceptorAdapter.cs" />
     <Compile Include="TaskInterceptors\InterceptorAdapter.cs" />
     <Compile Include="TaskInterceptors\ITaskInterceptor.cs" />
