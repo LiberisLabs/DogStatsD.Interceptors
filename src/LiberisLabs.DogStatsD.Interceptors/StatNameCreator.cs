@@ -2,7 +2,7 @@ using System.Reflection;
 
 namespace LiberisLabs.DogStatsD.Interceptors
 {
-    public class StatNameCreator
+    public class StatNameCreator : IStatNameCreator
     {
         public string Create(MethodInfo methodInvocationTarget)
         {
