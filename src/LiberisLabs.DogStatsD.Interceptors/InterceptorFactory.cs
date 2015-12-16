@@ -27,12 +27,18 @@ namespace LiberisLabs.DogStatsD.Interceptors
 
         private List<ITaskInterceptor> CreateAllInterceptors(MethodInfo method, MethodInfo methodInvocationTarget)
         {
+            var statName = CreateStatName(methodInvocationTarget);
             var interceptors = new List<ITaskInterceptor>();
-            interceptors.AddRange(WrapMonitorWithAdapter(new InstrumentMonitor(method, _dogStatsD)));
-            interceptors.Add(new TaskTimerInterceptor(methodInvocationTarget, _dogStatsD));
-            interceptors.Add(WrapInterceptorWithAdapter(new TimerInterceptor(methodInvocationTarget, _dogStatsD)));
+            interceptors.AddRange(WrapMonitorWithAdapter(new InstrumentMonitor(_dogStatsD, statName)));
+            interceptors.Add(new TaskTimerInterceptor(_dogStatsD, statName));
+            interceptors.Add(WrapInterceptorWithAdapter(new TimerInterceptor(_dogStatsD, statName)));
 
             return interceptors;
+        }
+
+        private string CreateStatName(MethodInfo methodInvocationTarget)
+        {
+            return $"{methodInvocationTarget.ReflectedType.FullName}.{methodInvocationTarget.Name}".ToLowerInvariant();
         }
 
         private static ITaskInterceptor[] WrapMonitorWithAdapter(IMonitor monitor)

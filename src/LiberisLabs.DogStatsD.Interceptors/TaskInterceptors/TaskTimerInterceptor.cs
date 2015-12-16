@@ -3,7 +3,6 @@ using System.Reflection;
 using System.Threading.Tasks;
 using Castle.Core.Internal;
 using LiberisLabs.DogStatsD.Interceptors.Annotations;
-using LiberisLabs.DogStatsD.Interceptors.Interceptors;
 
 namespace LiberisLabs.DogStatsD.Interceptors.TaskInterceptors
 {
@@ -14,10 +13,10 @@ namespace LiberisLabs.DogStatsD.Interceptors.TaskInterceptors
 
         private IDisposable _timer;
 
-        public TaskTimerInterceptor(MethodInfo method, IDogStatsD dogStatsD)
+        public TaskTimerInterceptor(IDogStatsD dogStatsD, string statName)
         {
             _dogStatsD = dogStatsD;
-            _statName = $"{method.ReflectedType.FullName}.{method.Name}".ToLowerInvariant();
+            _statName = statName;
         }
 
         public void OnEntry()

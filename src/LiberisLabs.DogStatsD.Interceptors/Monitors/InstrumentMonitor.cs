@@ -9,10 +9,10 @@ namespace LiberisLabs.DogStatsD.Interceptors.Monitors
         private readonly IDogStatsD _dogStatsD;
         private readonly string _statName;
 
-        public InstrumentMonitor(MethodInfo method, IDogStatsD dogStatsD)
+        public InstrumentMonitor(IDogStatsD dogStatsD, string statName)
         {
             _dogStatsD = dogStatsD;
-            _statName = $"{method.ReflectedType.FullName}.{method.Name}".ToLowerInvariant();    
+            _statName = statName;
         }
 
 

@@ -13,10 +13,10 @@ namespace LiberisLabs.DogStatsD.Interceptors.Interceptors
 
         private IDisposable _timer;
 
-        public TimerInterceptor(MethodInfo method, IDogStatsD dogStatsD)
+        public TimerInterceptor(IDogStatsD dogStatsD, string statName)
         {
             _dogStatsD = dogStatsD;
-            _statName = $"{method.ReflectedType.FullName}.{method.Name}".ToLowerInvariant();
+            _statName = statName;
         }
 
         public void OnEntry()

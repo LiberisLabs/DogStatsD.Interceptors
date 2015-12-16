@@ -15,14 +15,12 @@ namespace LiberisLabs.DogStatsD.Interceptors.Tests.Interceptors.TimerInterceptor
         [TestFixtureSetUp]
         public void GivenTimerInterceptorWithInterceptorOnEntry()
         {
-            var methodInfo = new MethodInfoBuilder().Create();
-
             _timer = new Mock<IDisposable>();
             var dogStatsD = new Mock<IDogStatsD>();
             dogStatsD.Setup(x => x.StartTimer(It.IsAny<string>(), It.IsAny<double>(), It.IsAny<string[]>()))
                 .Returns(_timer.Object);
 
-            _interceptor = new TimerInterceptor(methodInfo, dogStatsD.Object);
+            _interceptor = new TimerInterceptor(dogStatsD.Object, "");
             _interceptor.OnEntry();
         }
 

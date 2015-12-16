@@ -1,9 +1,10 @@
-﻿using LiberisLabs.DogStatsD.Interceptors.Interceptors;
+﻿
+using LiberisLabs.DogStatsD.Interceptors.Interceptors;
 using LiberisLabs.DogStatsD.Interceptors.Monitors;
 using Moq;
 using NUnit.Framework;
 
-namespace LiberisLabs.DogStatsD.Interceptors.Tests.Interceptors.MonitorInterceptorAdapterTests
+namespace LiberisLabs.DogStatsD.Interceptors.Tests.Interceptors
 {
     [TestFixture]
     public class MonitorInterceptorAdapterTests
@@ -41,6 +42,6 @@ namespace LiberisLabs.DogStatsD.Interceptors.Tests.Interceptors.MonitorIntercept
 
             _monitor.Verify(x => x.Error(), Times.Once);
         }
-        
+
     }
 }

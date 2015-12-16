@@ -14,15 +14,11 @@ namespace LiberisLabs.DogStatsD.Interceptors.Tests.Monitors
         [SetUp]
         public void GivenInstrumentMonitor()
         {
-            var methodInfo =
-                new MethodInfoBuilder().WithNamespace("Namespace")
-                    .WithClassName("ClassName")
-                    .WithMethodName("MethodName")
-                    .Create();
+            var statname = "namespace.classname.methodname";
 
             _dogStatsd = new Mock<IDogStatsD>();
 
-            _monitor = new InstrumentMonitor(methodInfo, _dogStatsd.Object);
+            _monitor = new InstrumentMonitor(_dogStatsd.Object, statname);
         }
 
         [Test]

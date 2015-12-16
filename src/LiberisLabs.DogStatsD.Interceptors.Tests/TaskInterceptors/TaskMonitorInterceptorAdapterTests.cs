@@ -6,7 +6,7 @@ using LiberisLabs.DogStatsD.Interceptors.TaskInterceptors;
 using Moq;
 using NUnit.Framework;
 
-namespace LiberisLabs.DogStatsD.Interceptors.Tests.Interceptors.MonitorInterceptorAdapterTests
+namespace LiberisLabs.DogStatsD.Interceptors.Tests.TaskInterceptors
 {
     [TestFixture]
     public class TaskMonitorInterceptorAdapterTests

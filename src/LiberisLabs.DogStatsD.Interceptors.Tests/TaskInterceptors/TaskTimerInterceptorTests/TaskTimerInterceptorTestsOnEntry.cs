@@ -1,10 +1,9 @@
-using LiberisLabs.DogStatsD.Interceptors.Interceptors;
 using LiberisLabs.DogStatsD.Interceptors.TaskInterceptors;
 using LiberisLabs.DogStatsD.Interceptors.Tests.Helpers;
 using Moq;
 using NUnit.Framework;
 
-namespace LiberisLabs.DogStatsD.Interceptors.Tests.Interceptors.TaskTimerInterceptorTests
+namespace LiberisLabs.DogStatsD.Interceptors.Tests.TaskInterceptors.TaskTimerInterceptorTests
 {
     [TestFixture]
     public class TaskTimerInterceptorTestsOnEntry
@@ -15,14 +14,10 @@ namespace LiberisLabs.DogStatsD.Interceptors.Tests.Interceptors.TaskTimerInterce
         [TestFixtureSetUp]
         public void GivenTaskTimerInterceptor()
         {
-            var methodInfo = new MethodInfoBuilder()
-                .WithNamespace("Namespace")
-                .WithClassName("ClassName")
-                .WithMethodName("MethodName")
-                .Create();
+            var statName = "namespace.classname.methodname";
 
             _dogStatsD = new Mock<IDogStatsD>();
-            _interceptor = new TaskTimerInterceptor(methodInfo, _dogStatsD.Object);
+            _interceptor = new TaskTimerInterceptor(_dogStatsD.Object, statName);
         }
 
         [SetUp]
