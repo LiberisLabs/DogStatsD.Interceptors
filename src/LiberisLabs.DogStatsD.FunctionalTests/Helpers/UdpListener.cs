@@ -94,5 +94,10 @@ namespace LiberisLabs.DogStatsD.FunctionalTests.Helpers
         {
             return _stats.Any(x => Regex.IsMatch(x, regexPattern, RegexOptions.None));
         }
+
+        public int StatCount()
+        {
+            return _stats.Count;
+        }
     }
 }

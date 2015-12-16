@@ -14,8 +14,7 @@ namespace LiberisLabs.DogStatsD.Interceptors.Monitors
             _dogStatsD = dogStatsD;
             _statName = statName;
         }
-
-
+        
         public void Attempt()
         {
             _dogStatsD.Increment($"{_statName}.attempt");

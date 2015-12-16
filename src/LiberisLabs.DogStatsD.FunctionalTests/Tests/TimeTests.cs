@@ -28,6 +28,7 @@ namespace LiberisLabs.DogStatsD.FunctionalTests.Tests
             _service.TimeMethod();
 
             Assert.That(() => _instrumentationApi.HandledPattern(@"^liberislabs\.dogstatsd.\functionaltests\.testservice\.timemethod:\\d+|ms$"), Is.True.After(40000, 100));
+            Assert.That(() => _instrumentationApi.StatCount(), Is.EqualTo(1).After(40000, 100));
         }
 
         [Test]
@@ -43,6 +44,7 @@ namespace LiberisLabs.DogStatsD.FunctionalTests.Tests
             }
 
             Assert.That(() => _instrumentationApi.HandledPattern(@"^liberislabs\.dogstatsd.\functionaltests\.testservice\.timeexception:\\d+|ms$"), Is.True.After(40000, 100));
+            Assert.That(() => _instrumentationApi.StatCount(), Is.EqualTo(1).After(40000, 100));
         }
 
 
@@ -52,6 +54,7 @@ namespace LiberisLabs.DogStatsD.FunctionalTests.Tests
             await _service.TimeTaskMethod().ConfigureAwait(false);
 
             Assert.That(() => _instrumentationApi.HandledPattern(@"^liberislabs\.dogstatsd.\functionaltests\.testservice\.timetaskmethod:\\d+|ms$"), Is.True.After(40000, 100));
+            Assert.That(() => _instrumentationApi.StatCount(), Is.EqualTo(1).After(40000, 100));
         }
 
         [Test]
@@ -67,6 +70,7 @@ namespace LiberisLabs.DogStatsD.FunctionalTests.Tests
             }
 
             Assert.That(() => _instrumentationApi.HandledPattern(@"^liberislabs\.dogstatsd.\functionaltests\.testservice\.timetaskexception:\\d+|ms$"), Is.True.After(40000, 100));
+            Assert.That(() => _instrumentationApi.StatCount(), Is.EqualTo(1).After(40000, 100));
         }
 
         [TearDown]

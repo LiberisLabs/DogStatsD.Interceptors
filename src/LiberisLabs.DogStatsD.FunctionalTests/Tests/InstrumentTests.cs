@@ -29,6 +29,7 @@ namespace LiberisLabs.DogStatsD.FunctionalTests.Tests
             
             Assert.That(() => _instrumentationApi.HandledPattern(@"^liberislabs\.dogstatsd\.functionaltests\.testservice\.instrumentmethod\.attempt:1|c:\\d+$"), Is.True.After(40000, 100));
             Assert.That(() => _instrumentationApi.HandledPattern(@"^liberislabs\.dogstatsd\.functionaltests\.testservice\.instrumentmethod\.success:1|c:\\d+$"), Is.True.After(40000, 100));
+            Assert.That(() => _instrumentationApi.StatCount(), Is.EqualTo(2).After(40000, 100));
         }
 
         [Test]
@@ -45,6 +46,7 @@ namespace LiberisLabs.DogStatsD.FunctionalTests.Tests
 
             Assert.That(() => _instrumentationApi.HandledPattern(@"^liberislabs\.dogstatsd\.functionaltests\.testservice\.instrumentexception\.attempt:1|c:\\d+$"), Is.True.After(40000, 100));
             Assert.That(() => _instrumentationApi.HandledPattern(@"^liberislabs\.dogstatsd\.functionaltests\.testservice\.instrumentexception\.error:1|c:\\d+$"), Is.True.After(40000, 100));
+            Assert.That(() => _instrumentationApi.StatCount(), Is.EqualTo(2).After(40000, 100));
         }
 
         [Test]
@@ -54,6 +56,7 @@ namespace LiberisLabs.DogStatsD.FunctionalTests.Tests
 
             Assert.That(() => _instrumentationApi.HandledPattern(@"^liberislabs\.dogstatsd\.functionaltests\.testservice\.instrumenttaskmethod\.attempt:1|c:\\d+$"), Is.True.After(40000, 100));
             Assert.That(() => _instrumentationApi.HandledPattern(@"^liberislabs\.dogstatsd\.functionaltests\.testservice\.instrumenttaskmethod\.success:1|c:\\d+$"), Is.True.After(40000, 100));
+            Assert.That(() => _instrumentationApi.StatCount(), Is.EqualTo(2).After(40000, 100));
         }
 
         [Test]
@@ -70,6 +73,7 @@ namespace LiberisLabs.DogStatsD.FunctionalTests.Tests
 
             Assert.That(() => _instrumentationApi.HandledPattern(@"^liberislabs\.dogstatsd\.functionaltests\.testservice\.instrumenttaskexception\.attempt:1|c:\\d+$"), Is.True.After(40000, 100));
             Assert.That(() => _instrumentationApi.HandledPattern(@"^liberislabs\.dogstatsd\.functionaltests\.testservice\.instrumenttaskexception\.error:1|c:\\d+$"), Is.True.After(40000, 100));
+            Assert.That(() => _instrumentationApi.StatCount(), Is.EqualTo(2).After(40000, 100));
         }
 
         [Test]
@@ -85,6 +89,7 @@ namespace LiberisLabs.DogStatsD.FunctionalTests.Tests
             }
             Assert.That(() => _instrumentationApi.HandledPattern(@"^liberislabs\.dogstatsd\.functionaltests\.testservice\.instrumenttaskcancelled\.attempt:1|c:\\d+$"), Is.True.After(40000, 100));
             Assert.That(() => _instrumentationApi.HandledPattern(@"^liberislabs\.dogstatsd\.functionaltests\.testservice\.instrumenttaskcancelled\.canceled:1|c:\\d+$"), Is.True.After(40000, 100));
+            Assert.That(() => _instrumentationApi.StatCount(), Is.EqualTo(2).After(40000, 100));
         }
 
         [TearDown]
