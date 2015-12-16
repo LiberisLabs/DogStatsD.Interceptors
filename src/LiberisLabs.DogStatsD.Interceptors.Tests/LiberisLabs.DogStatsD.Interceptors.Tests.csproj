@@ -63,6 +63,8 @@
     <Compile Include="TaskInterceptors\TaskMonitorInterceptorAdapterTests.cs" />
     <Compile Include="Interceptors\MonitorInterceptorAdapterTests.cs" />
     <Compile Include="TaskInterceptors\TaskTimerInterceptorTests\TaskTimerInterceptorTestsOnEntry.cs" />
+    <Compile Include="TaskInterceptors\TaskTimerInterceptorTests\TaskTimerInterceptorCanInterceptForNoneTaskMethod.cs" />
+    <Compile Include="TaskInterceptors\TaskTimerInterceptorTests\TaskTimerInterceptorCanInterceptForTimeAttribute.cs" />
     <Compile Include="TaskInterceptors\TaskTimerInterceptorTests\TimerInterceptorTestsOnExit.cs" />
     <Compile Include="Interceptors\TimerInterceptorTests\TimerInterceptorTestsOnException.cs" />
     <Compile Include="Interceptors\TimerInterceptorTests\TimerInterceptorTestsOnEntry.cs" />
