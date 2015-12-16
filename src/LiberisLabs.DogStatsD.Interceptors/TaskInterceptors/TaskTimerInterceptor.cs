@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Reflection;
 using System.Threading.Tasks;
+using Castle.Core.Internal;
+using LiberisLabs.DogStatsD.Interceptors.Annotations;
+using LiberisLabs.DogStatsD.Interceptors.Interceptors;
 
-namespace LiberisLabs.DogStatsD.Interceptors.Interceptors
+namespace LiberisLabs.DogStatsD.Interceptors.TaskInterceptors
 {
-    public class TaskTimerInterceptor : IInterceptor
+    public class TaskTimerInterceptor : ITaskInterceptor
     {
         private readonly IDogStatsD _dogStatsD;
         private readonly string _statName;
@@ -33,6 +36,12 @@ namespace LiberisLabs.DogStatsD.Interceptors.Interceptors
         public void OnTaskContinuation(Task task)
         {
             task.ContinueWith(x => _timer.Dispose());
+        }
+
+        public bool CanIntercept(MethodInfo methodInfo, MethodInfo methodInvocationTarget)
+        {
+            return (methodInfo.HasAttribute<TimeAttribute>() || methodInvocationTarget.HasAttribute<TimeAttribute>())
+                   && typeof (Task).IsAssignableFrom(methodInfo.ReturnType);
         }
     }
 }

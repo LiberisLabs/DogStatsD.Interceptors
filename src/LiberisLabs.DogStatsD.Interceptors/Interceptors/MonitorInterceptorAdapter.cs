@@ -1,4 +1,5 @@
 using System;
+using System.Reflection;
 using System.Threading.Tasks;
 using LiberisLabs.DogStatsD.Interceptors.Monitors;
 
@@ -7,12 +8,10 @@ namespace LiberisLabs.DogStatsD.Interceptors.Interceptors
     public class MonitorInterceptorAdapter : IInterceptor
     {
         private readonly IMonitor _monitor;
-        private readonly bool _isTask;
 
-        public MonitorInterceptorAdapter(IMonitor monitor, bool isTaskReturnType)
+        public MonitorInterceptorAdapter(IMonitor monitor)
         {
             _monitor = monitor;
-            _isTask = isTaskReturnType;
         }
 
         public void OnEntry()
@@ -22,34 +21,17 @@ namespace LiberisLabs.DogStatsD.Interceptors.Interceptors
 
         public void OnExit()
         {
-            if (!_isTask)
-            {
-                _monitor.Success();
-            }
+            _monitor.Success();
         }
 
         public void OnException(Exception exception)
         {
-            if (!_isTask)
-            {
-                _monitor.Error();
-            }
+            _monitor.Error();
         }
 
-        public void OnTaskContinuation(Task task)
+        public bool CanIntercept(MethodInfo methodInfo, MethodInfo methodInvocationTarget)
         {
-            if (task.IsCanceled)
-            {
-                _monitor.Canceled();
-            }
-            else if (task.IsFaulted)
-            {
-                _monitor.Error();
-            }
-            else if (task.IsCompleted)
-            {
-                _monitor.Success();
-            }
+            return !typeof(Task).IsAssignableFrom(methodInfo.ReturnType) && _monitor.CanMonitor(methodInfo, methodInvocationTarget);
         }
     }
 }

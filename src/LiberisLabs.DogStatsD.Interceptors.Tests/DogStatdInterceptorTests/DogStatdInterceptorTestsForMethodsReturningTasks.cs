@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using System.Threading.Tasks;
 using Castle.DynamicProxy;
+using LiberisLabs.DogStatsD.Interceptors.TaskInterceptors;
 using Moq;
 using NUnit.Framework;
 using IInterceptor = LiberisLabs.DogStatsD.Interceptors.Interceptors.IInterceptor;
@@ -12,20 +13,20 @@ namespace LiberisLabs.DogStatsD.Interceptors.Tests.DogStatdInterceptorTests
     [TestFixture]
     public class DogStatdInterceptorTestsForMethodsReturningTasks
     {
-        private Mock<IInterceptor> _interceptor1;
-        private Mock<IInterceptor> _interceptor2;
+        private Mock<ITaskInterceptor> _interceptor1;
+        private Mock<ITaskInterceptor> _interceptor2;
         private Task _task;
 
         [SetUp]
         public void GivenADogStatdInterceptor_WhenInterceptASuccessfulCall()
         {
             _task = Task.FromResult(0);
-            _interceptor1 = new Mock<IInterceptor>();
-            _interceptor2 = new Mock<IInterceptor>();
+            _interceptor1 = new Mock<ITaskInterceptor>();
+            _interceptor2 = new Mock<ITaskInterceptor>();
 
-            var factory = new Mock<IMonitorInterceptorFactory>();
-            factory.Setup(x => x.CreateMonitorInterceptors(It.IsAny<MethodInfo>(), It.IsAny<MethodInfo>()))
-                .Returns(new List<IInterceptor>() { _interceptor1.Object, _interceptor2.Object });
+            var factory = new Mock<IInterceptorFactory>();
+            factory.Setup(x => x.CreateInterceptors(It.IsAny<MethodInfo>(), It.IsAny<MethodInfo>()))
+                .Returns(new List<ITaskInterceptor>() { _interceptor1.Object, _interceptor2.Object });
 
             var interceptor = new DogStatdInterceptor(factory.Object);
 

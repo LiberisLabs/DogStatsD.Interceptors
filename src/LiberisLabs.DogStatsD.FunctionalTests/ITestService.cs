@@ -12,6 +12,8 @@ namespace LiberisLabs.DogStatsD.FunctionalTests
 
         Task InstrumentTaskException();
 
+        Task InstrumentTaskCancelled();
+
         void TimeMethod();
 
         void TimeException();
@@ -19,5 +21,8 @@ namespace LiberisLabs.DogStatsD.FunctionalTests
         Task TimeTaskMethod();
 
         Task TimeTaskException();
+
+        Task TimeTaskCancelled();
+
     }
 }

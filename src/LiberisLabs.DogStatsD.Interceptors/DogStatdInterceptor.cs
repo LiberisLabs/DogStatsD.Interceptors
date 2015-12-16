@@ -7,21 +7,21 @@ namespace LiberisLabs.DogStatsD.Interceptors
 {
     public class DogStatdInterceptor : IInterceptor
     {
-        private readonly IMonitorInterceptorFactory _factory;
+        private readonly IInterceptorFactory _factory;
 
-        public DogStatdInterceptor(IMonitorInterceptorFactory factory)
+        public DogStatdInterceptor(IInterceptorFactory factory)
         {
             _factory = factory;
         }
 
         public DogStatdInterceptor()
-            : this(new MonitorInterceptorFactory())
+            : this(new InterceptorFactory())
         {
         }
 
         public void Intercept(IInvocation invocation)
         {
-            var interceptors = _factory.CreateMonitorInterceptors(invocation.Method, invocation.MethodInvocationTarget);
+            var interceptors = _factory.CreateInterceptors(invocation.Method, invocation.MethodInvocationTarget);
             interceptors.ForEach(x => x.OnEntry());
 
             try

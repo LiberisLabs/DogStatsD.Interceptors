@@ -1,5 +1,5 @@
 using System;
-using System.Threading.Tasks;
+using System.Reflection;
 
 namespace LiberisLabs.DogStatsD.Interceptors.Interceptors
 {
@@ -11,6 +11,6 @@ namespace LiberisLabs.DogStatsD.Interceptors.Interceptors
 
         void OnException(Exception exception);
 
-        void OnTaskContinuation(Task task);
+        bool CanIntercept(MethodInfo methodInfo, MethodInfo methodInvocationTarget);
     }
 }

@@ -1,24 +1,24 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
-using LiberisLabs.DogStatsD.Interceptors.Interceptors;
 using LiberisLabs.DogStatsD.Interceptors.Monitors;
+using LiberisLabs.DogStatsD.Interceptors.TaskInterceptors;
 using Moq;
 using NUnit.Framework;
 
 namespace LiberisLabs.DogStatsD.Interceptors.Tests.Interceptors.MonitorInterceptorAdapterTests
 {
     [TestFixture]
-    public class MonitorInterceptorAdapterTestsForTaskReturnType
+    public class TaskMonitorInterceptorAdapterTests
     {
         private Mock<IMonitor> _monitor;
-        private MonitorInterceptorAdapter _adapter;
+        private TaskMonitorInterceptorAdapter _adapter;
 
         [SetUp]
         public void GivenMonitorInterceptorAdapter()
         {
             _monitor = new Mock<IMonitor>();
-            _adapter = new MonitorInterceptorAdapter(_monitor.Object, true);
+            _adapter = new TaskMonitorInterceptorAdapter(_monitor.Object);
         }
 
         [Test]

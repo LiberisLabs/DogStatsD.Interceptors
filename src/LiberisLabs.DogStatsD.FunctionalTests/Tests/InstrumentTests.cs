@@ -72,6 +72,21 @@ namespace LiberisLabs.DogStatsD.FunctionalTests.Tests
             Assert.That(() => _instrumentationApi.HandledPattern(@"^liberislabs\.dogstatsd\.functionaltests\.testservice\.instrumenttaskexception\.error:1|c:\\d+$"), Is.True.After(40000, 100));
         }
 
+        [Test]
+        public async Task WhenCallingInstrumentTaskCancelled_ThenTheInstrumentsAreIntercepted()
+        {
+            try
+            {
+                await _service.InstrumentTaskCancelled().ConfigureAwait(false);
+            }
+            catch(Exception)
+            {
+                
+            }
+            Assert.That(() => _instrumentationApi.HandledPattern(@"^liberislabs\.dogstatsd\.functionaltests\.testservice\.instrumenttaskcancelled\.attempt:1|c:\\d+$"), Is.True.After(40000, 100));
+            Assert.That(() => _instrumentationApi.HandledPattern(@"^liberislabs\.dogstatsd\.functionaltests\.testservice\.instrumenttaskcancelled\.canceled:1|c:\\d+$"), Is.True.After(40000, 100));
+        }
+
         [TearDown]
         public void Kill()
         {

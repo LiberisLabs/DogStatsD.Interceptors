@@ -15,7 +15,7 @@ namespace LiberisLabs.DogStatsD.Interceptors.Tests.Interceptors.MonitorIntercept
         public void GivenMonitorInterceptorAdapter()
         {
             _monitor = new Mock<IMonitor>();
-            _adapter = new MonitorInterceptorAdapter(_monitor.Object, false);
+            _adapter = new MonitorInterceptorAdapter(_monitor.Object);
         }
 
         [Test]

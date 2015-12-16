@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Reflection;
 using System.Threading.Tasks;
+using Castle.Core.Internal;
+using LiberisLabs.DogStatsD.Interceptors.Annotations;
 
 namespace LiberisLabs.DogStatsD.Interceptors.Interceptors
 {
@@ -32,9 +34,10 @@ namespace LiberisLabs.DogStatsD.Interceptors.Interceptors
             _timer.Dispose();
         }
 
-        public void OnTaskContinuation(Task task)
+        public bool CanIntercept(MethodInfo methodInfo, MethodInfo methodInvocationTarget)
         {
-            throw new NotImplementedException();
+            return (methodInfo.HasAttribute<TimeAttribute>() || methodInvocationTarget.HasAttribute<TimeAttribute>())
+                   && !typeof (Task).IsAssignableFrom(methodInfo.ReturnType);
         }
     }
 }

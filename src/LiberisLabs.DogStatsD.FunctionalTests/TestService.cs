@@ -1,6 +1,5 @@
 using System;
 using System.Threading.Tasks;
-using LiberisLabs.DogStatsD.Interceptors;
 using LiberisLabs.DogStatsD.Interceptors.Annotations;
 
 namespace LiberisLabs.DogStatsD.FunctionalTests
@@ -32,6 +31,16 @@ namespace LiberisLabs.DogStatsD.FunctionalTests
             throw new Exception("oops!");
         }
 
+        [Instrument]
+        public Task InstrumentTaskCancelled()
+        {
+            TaskCompletionSource<int> tcs = new TaskCompletionSource<int>();
+
+            tcs.SetCanceled();
+
+            return tcs.Task;
+        }
+
         [Time]
         public void TimeMethod()
         {
@@ -56,6 +65,12 @@ namespace LiberisLabs.DogStatsD.FunctionalTests
             await Task.Delay(1).ConfigureAwait(false);
 
             throw new Exception("oops!");
+        }
+
+        [Time]
+        public Task TimeTaskCancelled()
+        {
+            throw new NotImplementedException();
         }
     }
 }

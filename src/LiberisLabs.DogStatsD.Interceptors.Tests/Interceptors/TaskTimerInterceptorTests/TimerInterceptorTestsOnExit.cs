@@ -1,6 +1,7 @@
 using System;
 using System.Threading.Tasks;
 using LiberisLabs.DogStatsD.Interceptors.Interceptors;
+using LiberisLabs.DogStatsD.Interceptors.TaskInterceptors;
 using LiberisLabs.DogStatsD.Interceptors.Tests.Helpers;
 using Moq;
 using NUnit.Framework;

@@ -49,9 +49,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IMonitorInterceptorFactory.cs" />
+    <Compile Include="IInterceptorFactory.cs" />
+    <Compile Include="TaskInterceptors\TaskMonitorInterceptorAdapter.cs" />
+    <Compile Include="TaskInterceptors\InterceptorAdapter.cs" />
+    <Compile Include="TaskInterceptors\ITaskInterceptor.cs" />
     <Compile Include="Interceptors\MonitorInterceptorAdapter.cs" />
-    <Compile Include="Interceptors\TaskTimerInterceptor.cs" />
+    <Compile Include="TaskInterceptors\TaskTimerInterceptor.cs" />
     <Compile Include="Interceptors\TimerInterceptor.cs" />
     <Compile Include="Monitors\InstrumentMonitor.cs" />
     <Compile Include="DogStatdInterceptor.cs" />
@@ -59,7 +62,7 @@
     <Compile Include="Interceptors\IInterceptor.cs" />
     <Compile Include="IDogStatsd.cs" />
     <Compile Include="Monitors\IMonitor.cs" />
-    <Compile Include="MonitorInterceptorFactory.cs" />
+    <Compile Include="InterceptorFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -1,3 +1,5 @@
+using System.Reflection;
+
 namespace LiberisLabs.DogStatsD.Interceptors.Monitors
 {
     public interface IMonitor
@@ -9,5 +11,6 @@ namespace LiberisLabs.DogStatsD.Interceptors.Monitors
         void Error();
 
         void Canceled();
+        bool CanMonitor(MethodInfo methodInfo, MethodInfo methodInvocationTarget);
     }
 }

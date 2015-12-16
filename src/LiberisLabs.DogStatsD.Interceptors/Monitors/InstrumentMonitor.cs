@@ -1,4 +1,6 @@
 using System.Reflection;
+using Castle.Core.Internal;
+using LiberisLabs.DogStatsD.Interceptors.Annotations;
 
 namespace LiberisLabs.DogStatsD.Interceptors.Monitors
 {
@@ -32,6 +34,13 @@ namespace LiberisLabs.DogStatsD.Interceptors.Monitors
         public void Canceled()
         {
             _dogStatsD.Increment($"{_statName}.canceled");
+        }
+
+        public bool CanMonitor(MethodInfo methodInfo, MethodInfo methodInvocationTarget)
+        {
+            return methodInfo.HasAttribute<InstrumentAttribute>()
+                   || methodInvocationTarget.HasAttribute<InstrumentAttribute>();
+
         }
     }
 }
