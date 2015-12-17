@@ -57,11 +57,13 @@
     <Compile Include="DogStatdInterceptorTests\DogStatdInterceptorTestsForMethodsReturningTasks.cs" />
     <Compile Include="Helpers\MethodInfoBuilder.cs" />
     <Compile Include="InterceptorFactoryTests.cs" />
+    <Compile Include="Interceptors\MonitorInterceptorAdapterTests\MonitorInterceptorAdapterTestsForCanIntercept.cs" />
+    <Compile Include="Interceptors\MonitorInterceptorAdapterTests\MonitorInterceptorAdapterTestsForCanInterceptTask.cs" />
     <Compile Include="Interceptors\TimerInterceptorTests\TimerInterceptorCanInterceptForTaskMethod.cs" />
     <Compile Include="Interceptors\TimerInterceptorTests\TimerInterceptorCanInterceptForTimeAttribute.cs" />
     <Compile Include="StatNameCreatorTests.cs" />
     <Compile Include="TaskInterceptors\TaskMonitorInterceptorAdapterTests.cs" />
-    <Compile Include="Interceptors\MonitorInterceptorAdapterTests.cs" />
+    <Compile Include="Interceptors\MonitorInterceptorAdapterTests\MonitorInterceptorAdapterTests.cs" />
     <Compile Include="TaskInterceptors\TaskTimerInterceptorTests\TaskTimerInterceptorTestsOnEntry.cs" />
     <Compile Include="TaskInterceptors\TaskTimerInterceptorTests\TaskTimerInterceptorCanInterceptForNoneTaskMethod.cs" />
     <Compile Include="TaskInterceptors\TaskTimerInterceptorTests\TaskTimerInterceptorCanInterceptForTimeAttribute.cs" />
