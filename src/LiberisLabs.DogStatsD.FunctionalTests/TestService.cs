@@ -70,7 +70,11 @@ namespace LiberisLabs.DogStatsD.FunctionalTests
         [Time]
         public Task TimeTaskCancelled()
         {
-            throw new NotImplementedException();
+            TaskCompletionSource<int> tcs = new TaskCompletionSource<int>();
+
+            tcs.SetCanceled();
+
+            return tcs.Task;
         }
     }
 }

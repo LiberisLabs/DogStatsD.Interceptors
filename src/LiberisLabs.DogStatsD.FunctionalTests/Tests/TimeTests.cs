@@ -74,6 +74,21 @@ namespace LiberisLabs.DogStatsD.FunctionalTests.Tests
             Assert.That(() => _instrumentationApi.StatCount(), Is.EqualTo(1).After(DelayInMilliseconds, PollingInterval));
         }
 
+        [Test]
+        public async Task WhenCallingTimeTaskCancelled_ThenTheTimerAreIntercepted()
+        {
+            try
+            {
+                await _service.TimeTaskCancelled().ConfigureAwait(false);
+            }
+            catch (Exception)
+            {
+
+            }
+            Assert.That(() => _instrumentationApi.HandledPattern(@"^liberislabs\.dogstatsd.\functionaltests\.testservice\.timetaskcancelled:\\d+|ms$"), Is.True.After(DelayInMilliseconds, PollingInterval));
+            Assert.That(() => _instrumentationApi.StatCount(), Is.EqualTo(1).After(DelayInMilliseconds, PollingInterval));
+        }
+
         [TearDown]
         public void Kill()
         {
