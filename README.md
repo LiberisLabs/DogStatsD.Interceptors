@@ -16,7 +16,7 @@ DogStatsD.Interceptors can be installed via the package manager console by execu
 PM> Install-Package DogStatsD.Interceptors
 ```
 
-Once we have the package installed, we need to setup the DogStatsD client for c#, this is achived at start of your application by calling `Configure` on `DogStatsd` object:
+Once we have the package installed, we need to setup the DogStatsD client for c#, this is achieved at start of your application by calling `Configure` on `DogStatsd` object:
 
 ```chsarp
 // The code is located under the StatsdClient namespace
