@@ -1,7 +1,6 @@
 ﻿using System.Reflection;
 using LiberisLabs.DogStatsD.Interceptors.Annotations;
 using LiberisLabs.DogStatsD.Interceptors.Monitors;
-using LiberisLabs.DogStatsD.Interceptors.Tests.Helpers;
 using Moq;
 using NUnit.Framework;
 

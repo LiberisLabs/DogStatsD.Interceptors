@@ -62,6 +62,7 @@
   <ItemGroup>
     <Compile Include="Helpers\DogStatDConfigurator.cs" />
     <Compile Include="Helpers\UdpListener.cs" />
+    <Compile Include="TestConstants.cs" />
     <Compile Include="TestServiceFactory.cs" />
     <Compile Include="ITestService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
