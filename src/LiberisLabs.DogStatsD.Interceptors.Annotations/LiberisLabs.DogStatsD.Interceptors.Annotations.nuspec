@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>DogStatsD.Interceptors.Annotations</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>$author$</authors>
+    <owners>$author$</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>$description$</description>
+    <releaseNotes>N/A</releaseNotes>
+    <copyright>Copyright 2015</copyright>
+    <tags>LiberisLabs DogStatsD Interceptors DataDog Monitoring Annotations</tags>
+    <projectUrl>https://github.com/LiberisLabs/DogStatsD.Interceptors</projectUrl>
+    <iconUrl>https://raw.githubusercontent.com/LiberisLabs/DogStatsD.Interceptors/master/liberis-labs.jpg</iconUrl>
+  </metadata>
+</package>
