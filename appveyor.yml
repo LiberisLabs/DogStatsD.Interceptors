@@ -4,6 +4,9 @@
       - master
    
   version: 1.0.0-beta
+  
+  install:
+    - ps : .\environment-install.ps1
 
   assembly_info:
     assembly_version: '{version}'
@@ -16,7 +19,7 @@
  
   before_build:
     - ps : .\build-before_build.ps1
-
+	
   build:
     parallel: true
     verbosity: normal
@@ -52,6 +55,9 @@
       - master
 
   version: 0.0.0-{branch}{build}
+
+  install:
+    - ps : .\environment-install.ps1
     
   assembly_info:
     assembly_version: '{version}'
