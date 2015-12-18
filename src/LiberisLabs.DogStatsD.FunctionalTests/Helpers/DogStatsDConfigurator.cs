@@ -2,7 +2,7 @@
 
 namespace LiberisLabs.DogStatsD.FunctionalTests.Helpers
 {
-    public static class DogStatDConfigurator
+    public static class DogStatsDConfigurator
     {
         public static void Configure()
         {

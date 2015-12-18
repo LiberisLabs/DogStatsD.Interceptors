@@ -13,9 +13,9 @@ namespace LiberisLabs.DogStatsD.FunctionalTests.Tests
         private UdpListener _instrumentationApi;
 
         [SetUp]
-        public void GivenAConfiguredDogStatDAndAProxyService()
+        public void GivenAConfiguredDogStatsDAndAProxyService()
         {
-            DogStatDConfigurator.Configure();
+            DogStatsDConfigurator.Configure();
 
             _instrumentationApi = new UdpListener();
             _instrumentationApi.Start();

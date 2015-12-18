@@ -60,7 +60,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Helpers\DogStatDConfigurator.cs" />
+    <Compile Include="Helpers\DogStatsDConfigurator.cs" />
     <Compile Include="Helpers\UdpListener.cs" />
     <Compile Include="TestConstants.cs" />
     <Compile Include="TestServiceFactory.cs" />

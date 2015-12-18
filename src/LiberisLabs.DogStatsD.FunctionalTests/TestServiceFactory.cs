@@ -10,10 +10,10 @@ namespace LiberisLabs.DogStatsD.FunctionalTests
         {
             var builder = new ContainerBuilder();
 
-            builder.RegisterType<DogStatdInterceptor>();
+            builder.RegisterType<DogStatsdInterceptor>();
 
             builder.RegisterType<TestService>()
-                .InterceptedBy(typeof(DogStatdInterceptor))
+                .InterceptedBy(typeof(DogStatsdInterceptor))
                 .As<ITestService>()
                 .EnableInterfaceInterceptors();
 

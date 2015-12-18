@@ -5,16 +5,16 @@ using Castle.DynamicProxy;
 
 namespace LiberisLabs.DogStatsD.Interceptors
 {
-    public class DogStatdInterceptor : IInterceptor
+    public class DogStatsdInterceptor : IInterceptor
     {
         private readonly IInterceptorFactory _factory;
 
-        public DogStatdInterceptor(IInterceptorFactory factory)
+        public DogStatsdInterceptor(IInterceptorFactory factory)
         {
             _factory = factory;
         }
 
-        public DogStatdInterceptor()
+        public DogStatsdInterceptor()
             : this(new InterceptorFactory())
         {
         }

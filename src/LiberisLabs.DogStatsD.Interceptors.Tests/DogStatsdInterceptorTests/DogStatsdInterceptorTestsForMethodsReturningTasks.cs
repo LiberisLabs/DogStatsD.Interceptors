@@ -6,19 +6,18 @@ using Castle.DynamicProxy;
 using LiberisLabs.DogStatsD.Interceptors.TaskInterceptors;
 using Moq;
 using NUnit.Framework;
-using IInterceptor = LiberisLabs.DogStatsD.Interceptors.Interceptors.IInterceptor;
 
-namespace LiberisLabs.DogStatsD.Interceptors.Tests.DogStatdInterceptorTests
+namespace LiberisLabs.DogStatsD.Interceptors.Tests.DogStatsdInterceptorTests
 {
     [TestFixture]
-    public class DogStatdInterceptorTestsForMethodsReturningTasks
+    public class DogStatsdInterceptorTestsForMethodsReturningTasks
     {
         private Mock<ITaskInterceptor> _interceptor1;
         private Mock<ITaskInterceptor> _interceptor2;
         private Task _task;
 
         [SetUp]
-        public void GivenADogStatdInterceptor_WhenInterceptASuccessfulCall()
+        public void GivenADogStatsdInterceptor_WhenInterceptASuccessfulCall()
         {
             _task = Task.FromResult(0);
             _interceptor1 = new Mock<ITaskInterceptor>();
@@ -28,7 +27,7 @@ namespace LiberisLabs.DogStatsD.Interceptors.Tests.DogStatdInterceptorTests
             factory.Setup(x => x.CreateInterceptors(It.IsAny<MethodInfo>(), It.IsAny<MethodInfo>()))
                 .Returns(new List<ITaskInterceptor>() { _interceptor1.Object, _interceptor2.Object });
 
-            var interceptor = new DogStatdInterceptor(factory.Object);
+            var interceptor = new DogStatsdInterceptor(factory.Object);
 
             var invocation = new Mock<IInvocation>();
             invocation.Setup(x => x.ReturnValue)
