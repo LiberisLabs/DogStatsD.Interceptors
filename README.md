@@ -1,6 +1,6 @@
 # DogStatsD.Interceptors
 
-A castle proxy interceptor that branches out in to multiple interceptors to push metrics back to DataDog via DogStatD.
+A castle proxy interceptor that branches out in to multiple interceptors to push metrics back to DataDog via DogStatsD.
 
 [![install from nuget](http://img.shields.io/nuget/v/DogStatsD.Interceptors.svg?style=flat-square)](https://www.nuget.org/packages/DogStatsD.Interceptors)
 [![downloads](http://img.shields.io/nuget/dt/DogStatsD.Interceptors.svg?style=flat-square)](https://www.nuget.org/packages/DogStatsD.Interceptors)
@@ -8,7 +8,7 @@ A castle proxy interceptor that branches out in to multiple interceptors to push
 
 ## Getting Started
 
-DogStatsD.Interceptors is split in to 2 packages, `DogStatsD.Interceptors` and `DogStatsD.Interceptors.Annotations`. `DogStatsD.Interceptors` is the core implemtation while `DogStatsD.Interceptors.Annotations` containing only Attributes which act as method markers.
+DogStatsD.Interceptors is split in to 2 packages, `DogStatsD.Interceptors` and `DogStatsD.Interceptors.Annotations`. `DogStatsD.Interceptors` is the core implementation while `DogStatsD.Interceptors.Annotations` contains only Attributes which act as method markers.
 
 DogStatsD.Interceptors can be installed via the package manager console by executing the following commandlet:
 
@@ -16,7 +16,7 @@ DogStatsD.Interceptors can be installed via the package manager console by execu
 PM> Install-Package DogStatsD.Interceptors
 ```
 
-Once we have the package installed, we need to setup the DogStatsD client for c#, this is achieved at start of your application by calling `Configure` on `DogStatsd` object:
+Once the package is installed, you need to setup the `DogStatsD` client for C#. Call the Configure method on the `DogStatsd` object as follows:
 
 ```chsarp
 // The code is located under the StatsdClient namespace
@@ -34,7 +34,7 @@ var dogstatsdConfig = new StatsdConfig
 StatsdClient.DogStatsd.Configure(dogstatsdConfig);
 ```
 
-For more information on configuring DogStatD client see the [DataDogs GitHub Page](https://github.com/DataDog/dogstatsd-csharp-client).
+For more information on configuring DogStatsD client see the [DataDogs GitHub Page](https://github.com/DataDog/dogstatsd-csharp-client).
 
 DogStatsD.Interceptors can then be plumbed in to any IoC container of choice.
 
@@ -42,30 +42,29 @@ DogStatsD.Interceptors can then be plumbed in to any IoC container of choice.
 
 #### Autofac
 
-Within the container builder within your application you will need to register the `DogStatdInterceptor`:
+The DogStatsdInterceptor will need to be registered within the application's container builder:
 
 ```csharp
 var builder = new ContainerBuilder();
 
-builder.RegisterType<DogStatdInterceptor>();
+builder.RegisterType<DogStatsdInterceptor>();
 ```
 
-After we have the interceptor registered we need to tell the container what interfaces to proxy and apply the interceptor to, this is done by calling `InterceptedBy` and then `EnableInterfaceInterceptors`:
-
+After the interceptor has been registered, the container needs to know what interfaces to proxy and apply the interceptor to. This is by calling `InterceptedBy` and then `EnableInterfaceInterceptors`
 ```csharp
 builder.RegisterType<Service>()
-    .InterceptedBy(typeof(DogStatdInterceptor))
+    .InterceptedBy(typeof(DogStatsdInterceptor))
     .As<IService>()
     .EnableInterfaceInterceptors();
 ```
 
-When we now build the container and resolve our object it will be proxied via the `DogStatdInterceptor`.
+Once the container is built and the object is resolved, it will be proxied via the `DogStatsdInterceptor`.
 
 For more detailed setups of interceptors see the [register-interceptors](http://docs.autofac.org/en/latest/advanced/interceptors.html#register-interceptors) within the Autofac documentation.
 
 #### Other IoC
 
-Most IoCs provide support for interceptors, please refer back to their documentation and maybe submit us a pull request to help others?
+Most IoCs provide support for interceptors, please refer back to their documentation and maybe submit us a pull request to help others
 
 ## Usage
 
@@ -93,7 +92,7 @@ public class Service : IService
 
 ```
 
-When the method is called it will now push attempts, successes, error and canceled to DataDog in the following format:
+When the method is called it will now push attempts, successes, errors and cancellations to DataDog in the following format:
 
 `{stat-name}.{action}`
 

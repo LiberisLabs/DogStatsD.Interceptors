@@ -15,6 +15,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{4D6DE9BD
 	ProjectSection(SolutionItems) = preProject
 		..\appveyor.yml = ..\appveyor.yml
 		..\build-before_build.ps1 = ..\build-before_build.ps1
+		..\environment-install.ps1 = ..\environment-install.ps1
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Stuff", "Stuff", "{6CAFB8DB-560C-4801-A74F-ACD4BEB4F300}"
