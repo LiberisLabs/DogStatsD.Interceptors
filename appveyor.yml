@@ -3,7 +3,10 @@
     only:
       - master
    
-  version: 0.0.{build}
+  version: 1.0.0-beta
+  
+  install:
+    - ps : .\environment-install.ps1
 
   assembly_info:
     assembly_version: '{version}'
@@ -52,6 +55,9 @@
       - master
 
   version: 0.0.0-{branch}{build}
+
+  install:
+    - ps : .\environment-install.ps1
     
   assembly_info:
     assembly_version: '{version}'

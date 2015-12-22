@@ -1,0 +1,54 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiberisLabs.DogStatsD.Interceptors", "LiberisLabs.DogStatsD.Interceptors\LiberisLabs.DogStatsD.Interceptors.csproj", "{197B6FB4-0BB8-4193-B8FD-0A5350B3307F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiberisLabs.DogStatsD.Interceptors.Tests", "LiberisLabs.DogStatsD.Interceptors.Tests\LiberisLabs.DogStatsD.Interceptors.Tests.csproj", "{EAE9EFB4-43B5-42B3-9AC3-A82984C7B72D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiberisLabs.DogStatsD.FunctionalTests", "LiberisLabs.DogStatsD.FunctionalTests\LiberisLabs.DogStatsD.FunctionalTests.csproj", "{9BE14744-03CC-4451-9890-9BAABE92C131}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiberisLabs.DogStatsD.Interceptors.Annotations", "LiberisLabs.DogStatsD.Interceptors.Annotations\LiberisLabs.DogStatsD.Interceptors.Annotations.csproj", "{DCA5E56F-DF0A-4E63-8A31-5103766B2EC3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{4D6DE9BD-5219-4875-A2EE-7172FDA19A4F}"
+	ProjectSection(SolutionItems) = preProject
+		..\appveyor.yml = ..\appveyor.yml
+		..\build-before_build.ps1 = ..\build-before_build.ps1
+		..\environment-install.ps1 = ..\environment-install.ps1
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Stuff", "Stuff", "{6CAFB8DB-560C-4801-A74F-ACD4BEB4F300}"
+	ProjectSection(SolutionItems) = preProject
+		..\liberis-labs.jpg = ..\liberis-labs.jpg
+		..\LICENSE = ..\LICENSE
+		..\README.md = ..\README.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{197B6FB4-0BB8-4193-B8FD-0A5350B3307F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{197B6FB4-0BB8-4193-B8FD-0A5350B3307F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{197B6FB4-0BB8-4193-B8FD-0A5350B3307F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{197B6FB4-0BB8-4193-B8FD-0A5350B3307F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EAE9EFB4-43B5-42B3-9AC3-A82984C7B72D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EAE9EFB4-43B5-42B3-9AC3-A82984C7B72D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EAE9EFB4-43B5-42B3-9AC3-A82984C7B72D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EAE9EFB4-43B5-42B3-9AC3-A82984C7B72D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9BE14744-03CC-4451-9890-9BAABE92C131}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BE14744-03CC-4451-9890-9BAABE92C131}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9BE14744-03CC-4451-9890-9BAABE92C131}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9BE14744-03CC-4451-9890-9BAABE92C131}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DCA5E56F-DF0A-4E63-8A31-5103766B2EC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCA5E56F-DF0A-4E63-8A31-5103766B2EC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DCA5E56F-DF0A-4E63-8A31-5103766B2EC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DCA5E56F-DF0A-4E63-8A31-5103766B2EC3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
