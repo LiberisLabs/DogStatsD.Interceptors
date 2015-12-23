@@ -19,10 +19,6 @@ PM> Install-Package DogStatsD.Interceptors
 Once the package is installed, you need to setup the `DogStatsD` client for C#. Call the Configure method on the `DogStatsd` object as follows:
 
 ```csharp
-// The code is located under the StatsdClient namespace
-using StatsdClient;
-
-// ...
 
 var dogstatsdConfig = new StatsdConfig
 {
@@ -42,7 +38,13 @@ DogStatsD.Interceptors can then be plumbed in to any IoC container of choice.
 
 #### Autofac
 
-The DogStatsdInterceptor will need to be registered within the application's container builder:
+To use interceptors with Autofac we need to install the `Autofac.Extras.DynamicProxy2` NuGet package:
+
+```powershell
+PM> Install-Package Autofac.Extras.DynamicProxy2
+```
+
+The DogStatsdInterceptor will then need to be registered within the application's container builder:
 
 ```csharp
 var builder = new ContainerBuilder();
