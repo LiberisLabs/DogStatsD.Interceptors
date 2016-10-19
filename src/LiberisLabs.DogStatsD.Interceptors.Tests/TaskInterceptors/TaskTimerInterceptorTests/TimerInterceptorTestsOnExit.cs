@@ -1,7 +1,6 @@
 using System;
 using System.Threading.Tasks;
 using LiberisLabs.DogStatsD.Interceptors.TaskInterceptors;
-using LiberisLabs.DogStatsD.Interceptors.Tests.Helpers;
 using Moq;
 using NUnit.Framework;
 
@@ -13,7 +12,7 @@ namespace LiberisLabs.DogStatsD.Interceptors.Tests.TaskInterceptors.TaskTimerInt
         private TaskTimerInterceptor _interceptor;
         private Mock<IDisposable> _timer;
 
-        [TestFixtureSetUp]
+        [OneTimeSetUp]
         public void GivenTaskTimerInterceptorWithInterceptorOnEntry()
         {
             var statName = "namespace.classname.methodname";

@@ -1,5 +1,5 @@
 ﻿using Autofac;
-using Autofac.Extras.DynamicProxy2;
+using Autofac.Extras.DynamicProxy;
 using LiberisLabs.DogStatsD.Interceptors;
 
 namespace LiberisLabs.DogStatsD.FunctionalTests

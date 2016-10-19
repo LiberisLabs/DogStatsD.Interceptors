@@ -1,6 +1,4 @@
 ﻿using System.Reflection;
-using System.Threading.Tasks;
-using LiberisLabs.DogStatsD.Interceptors.Interceptors;
 using LiberisLabs.DogStatsD.Interceptors.Monitors;
 using LiberisLabs.DogStatsD.Interceptors.TaskInterceptors;
 using Moq;

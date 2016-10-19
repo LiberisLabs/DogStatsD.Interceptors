@@ -1,5 +1,4 @@
 using LiberisLabs.DogStatsD.Interceptors.Interceptors;
-using LiberisLabs.DogStatsD.Interceptors.Tests.Helpers;
 using Moq;
 using NUnit.Framework;
 
@@ -11,7 +10,7 @@ namespace LiberisLabs.DogStatsD.Interceptors.Tests.Interceptors.TimerInterceptor
         private TimerInterceptor _interceptor;
         private Mock<IDogStatsD> _dogStatsD;
 
-        [TestFixtureSetUp]
+        [OneTimeSetUp]
         public void GivenTimerInterceptor()
         {
             var statname = "namespace.classname.methodname";

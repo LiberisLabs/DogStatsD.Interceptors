@@ -37,8 +37,8 @@
       <HintPath>..\packages\Castle.Core.3.3.3\lib\net40-client\Castle.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="StatsdClient, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f641b6aa3c3157d1, processorArchitecture=MSIL">
-      <HintPath>..\packages\DogStatsD-CSharp-Client.2.1.1\lib\net35\StatsdClient.dll</HintPath>
+    <Reference Include="StatsdClient, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DogStatsD-CSharp-Client.2.2.1\lib\net35\StatsdClient.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />

@@ -25,7 +25,7 @@ namespace LiberisLabs.DogStatsD.Interceptors.Tests.DogStatsdInterceptorTests
 
             var factory = new Mock<IInterceptorFactory>();
             factory.Setup(x => x.CreateInterceptors(It.IsAny<MethodInfo>(), It.IsAny<MethodInfo>()))
-                .Returns(new List<ITaskInterceptor>() { _interceptor1.Object, _interceptor2.Object });
+                .Returns(new List<ITaskInterceptor> { _interceptor1.Object, _interceptor2.Object });
 
             var interceptor = new DogStatsdInterceptor(factory.Object);
 
