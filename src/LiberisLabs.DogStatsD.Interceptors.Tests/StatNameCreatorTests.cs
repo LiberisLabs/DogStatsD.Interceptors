@@ -9,7 +9,7 @@ namespace LiberisLabs.DogStatsD.Interceptors.Tests
         private StatNameCreator _creator;
         private string _result;
 
-        [TestFixtureSetUp]
+        [OneTimeSetUp]
         public void Given()
         {
             _creator = new StatNameCreator();

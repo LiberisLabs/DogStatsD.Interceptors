@@ -17,7 +17,7 @@ namespace LiberisLabs.DogStatsD.Interceptors.Tests
         private MethodInfo _methodInvocationTarget;
         private MethodInfo _methodInfo;
 
-        [TestFixtureSetUp]
+        [OneTimeSetUp]
         public void GivenInterceptorFactoryWithSomeInterceptors()
         {
             string statName = Guid.NewGuid().ToString();
