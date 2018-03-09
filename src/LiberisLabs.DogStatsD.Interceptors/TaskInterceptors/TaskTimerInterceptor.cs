@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 using Castle.Core.Internal;
 using LiberisLabs.DogStatsD.Interceptors.Annotations;
+using LiberisLabs.DogStatsD.Interceptors.Interceptors;
 
 namespace LiberisLabs.DogStatsD.Interceptors.TaskInterceptors
 {
@@ -39,8 +41,9 @@ namespace LiberisLabs.DogStatsD.Interceptors.TaskInterceptors
 
         public bool CanIntercept(MethodInfo methodInfo, MethodInfo methodInvocationTarget)
         {
-            return typeof (Task).IsAssignableFrom(methodInfo.ReturnType)
-                   && (methodInfo.HasAttribute<TimeAttribute>() || methodInvocationTarget.HasAttribute<TimeAttribute>());
+            return typeof(Task).IsAssignableFrom(methodInfo.ReturnType)
+                   && (methodInfo.HasAttribute<TimeAttribute>()
+                       || methodInvocationTarget.HasAttribute<TimeAttribute>());
         }
     }
 }

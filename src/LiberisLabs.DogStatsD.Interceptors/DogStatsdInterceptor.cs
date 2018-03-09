@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
-using Castle.Core.Internal;
 using Castle.DynamicProxy;
+using System.Linq;
 
 namespace LiberisLabs.DogStatsD.Interceptors
 {
@@ -21,7 +21,7 @@ namespace LiberisLabs.DogStatsD.Interceptors
 
         public void Intercept(IInvocation invocation)
         {
-            var interceptors = _factory.CreateInterceptors(invocation.Method, invocation.MethodInvocationTarget);
+            var interceptors = _factory.CreateInterceptors(invocation.Method, invocation.MethodInvocationTarget).ToList();
             interceptors.ForEach(x => x.OnEntry());
 
             try
@@ -38,8 +38,7 @@ namespace LiberisLabs.DogStatsD.Interceptors
             }
             finally
             {
-                var task = invocation.ReturnValue as Task;
-                if (task != null)
+                if (invocation.ReturnValue is Task task)
                 {
                     interceptors.ForEach(x => task.ContinueWith(x.OnTaskContinuation));
                 }

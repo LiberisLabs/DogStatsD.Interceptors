@@ -2,21 +2,23 @@
   branches:
     only:
       - master
-   
-  version: 3.0.0
-  
+
+  version: 4.0.0
+
   install:
     - ps : .\environment-install.ps1
 
-  assembly_info:
-    assembly_version: '{version}'
-    assembly_file_version: '{version}'
-    assembly_informational_version: '{version}'
-    file: AssemblyInfo.*
+  dotnet_csproj:
     patch: true
-   
-  os: Visual Studio 2015
- 
+    file: '**\*.csproj'
+    version: '{version}'
+    package_version: '{version}'
+    assembly_version: '{version}'
+    file_version: '{version}'
+    informational_version: '{version}'
+
+  os: Visual Studio 2017
+
   before_build:
     - ps : .\build-before_build.ps1
 
@@ -26,22 +28,13 @@
     publish_nuget: true
 
   configuration: Release
-   
-  cache:
-    - packages -> **\packages.config
-    - C:\downloads -> appveyor.yml
-   
-  services:
-  
+
   test:
     assemblies:
       - '**\*.Tests.dll'
       - '**\*.FunctionalTests.dll'
       - '**\*..IntegrationTests.dll'
-               
-  artifacts:
-    - path: '*.nupkg'
-     
+
   deploy:
     - provider: Environment
       name: Liberis NuGet
@@ -54,19 +47,21 @@
     except:
       - master
 
-  version: 3.0.0-{branch}{build}
+  version: 4.0.0-{branch}{build}
 
   install:
     - ps : .\environment-install.ps1
-    
-  assembly_info:
-    assembly_version: '{version}'
-    assembly_file_version: '{version}'
-    assembly_informational_version: '{version}'
-    file: AssemblyInfo.*
-    patch: true
 
-  os: Visual Studio 2015
+  dotnet_csproj:
+    patch: true
+    file: '**\*.csproj'
+    version: '{version}'
+    package_version: '{version}'
+    assembly_version: '{version}'
+    file_version: '{version}'
+    informational_version: '{version}'
+
+  os: Visual Studio 2017
 
   before_build:
     - ps : .\build-before_build.ps1
@@ -77,18 +72,9 @@
     publish_nuget: true
 
   configuration: Release
-   
-  cache:
-    - packages -> **\packages.config
-    - C:\downloads -> appveyor.yml
-   
-  services:
-   
+
   test:
     assemblies:
       - '**\*.Tests.dll'
       - '**\*.FunctionalTests.dll'
       - '**\*..IntegrationTests.dll'
-
-  artifacts:
-    - path: '*.nupkg'

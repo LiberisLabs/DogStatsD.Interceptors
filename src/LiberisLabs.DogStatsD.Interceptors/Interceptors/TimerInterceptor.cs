@@ -36,8 +36,9 @@ namespace LiberisLabs.DogStatsD.Interceptors.Interceptors
 
         public bool CanIntercept(MethodInfo methodInfo, MethodInfo methodInvocationTarget)
         {
-            return !typeof (Task).IsAssignableFrom(methodInfo.ReturnType)
-                   && (methodInfo.HasAttribute<TimeAttribute>() || methodInvocationTarget.HasAttribute<TimeAttribute>());
+            return !typeof(Task).IsAssignableFrom(methodInfo.ReturnType)
+                   && (methodInfo.HasAttribute<TimeAttribute>()
+                       || methodInvocationTarget.HasAttribute<TimeAttribute>());
         }
     }
 }
